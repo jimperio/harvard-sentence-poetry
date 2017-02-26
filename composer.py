@@ -10,7 +10,8 @@ def compose(num_strophes, num_lines, has_refrain):
   if has_refrain:
     refrain = random_sentence(sentences)
   strophes = []
-  for _ in xrange(num_strophes or random.randint(2, 4)):
+  num_strophes = num_strophes or random.randint(2, 4)
+  while len(strophes) < num_strophes:
     strophes.append(
       create_strophe(sentences,
                      num_lines or random.randint(2, 4),
